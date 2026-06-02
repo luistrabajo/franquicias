@@ -1,6 +1,8 @@
 package com.franquicia.prueba.controller;
 
 
+import com.franquicia.prueba.dto.ProductoDTO;
+import com.franquicia.prueba.dto.SucursalDTO;
 import com.franquicia.prueba.dto.SucursalProductoDTO;
 import com.franquicia.prueba.entity.Producto;
 import com.franquicia.prueba.entity.Sucursal;
@@ -36,11 +38,11 @@ class SucursalProductoControllerTest {
     @Test
     void debeListar() throws Exception {
 
-        Sucursal sucursal = new Sucursal();
+        SucursalDTO sucursal = new SucursalDTO();
         sucursal.setId(1L);
         sucursal.setNombre("Sucursal Norte");
 
-        Producto producto = new Producto();
+        ProductoDTO producto = new ProductoDTO();
         producto.setId(1L);
         producto.setNombre("Hamburguesa");
 
@@ -66,10 +68,10 @@ class SucursalProductoControllerTest {
 
         Long id = 1L;
 
-        Sucursal sucursal = new Sucursal();
+        SucursalDTO sucursal = new SucursalDTO();
         sucursal.setId(1L);
 
-        Producto producto = new Producto();
+        ProductoDTO producto = new ProductoDTO();
         producto.setId(1L);
 
         SucursalProductoDTO dto =
@@ -94,10 +96,10 @@ class SucursalProductoControllerTest {
     @Test
     void debeCrear() throws Exception {
 
-        Sucursal sucursal = new Sucursal();
+        SucursalDTO sucursal = new SucursalDTO();
         sucursal.setId(1L);
 
-        Producto producto = new Producto();
+        ProductoDTO producto = new ProductoDTO();
         producto.setId(1L);
 
         SucursalProductoDTO request =
@@ -133,10 +135,10 @@ class SucursalProductoControllerTest {
 
         Long id = 1L;
 
-        Sucursal sucursal = new Sucursal();
+        SucursalDTO sucursal = new SucursalDTO();
         sucursal.setId(1L);
 
-        Producto producto = new Producto();
+        ProductoDTO producto = new ProductoDTO();
         producto.setId(1L);
 
         SucursalProductoDTO response =

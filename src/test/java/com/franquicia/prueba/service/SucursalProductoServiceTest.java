@@ -1,10 +1,14 @@
 package com.franquicia.prueba.service;
 
 
+import com.franquicia.prueba.dto.ProductoDTO;
+import com.franquicia.prueba.dto.SucursalDTO;
 import com.franquicia.prueba.dto.SucursalProductoDTO;
 import com.franquicia.prueba.entity.Producto;
 import com.franquicia.prueba.entity.Sucursal;
 import com.franquicia.prueba.entity.SucursalProducto;
+import com.franquicia.prueba.mappers.ProductoMapper;
+import com.franquicia.prueba.mappers.SucursalMapper;
 import com.franquicia.prueba.mappers.SucursalProductoMapper;
 import com.franquicia.prueba.repository.SucursalProductoRepository;
 import org.junit.jupiter.api.Test;
@@ -63,12 +67,20 @@ class SucursalProductoServiceTest {
         actualizado.setProducto(producto);
         actualizado.setStock(200);
 
-        SucursalProductoDTO response =
-                new SucursalProductoDTO();
+        SucursalDTO sucursalDTO = new SucursalDTO();
+        sucursalDTO.setId(1L);
+        sucursalDTO.setNombre("Sucursal Norte");
+
+        ProductoDTO productoDTO = new ProductoDTO();
+        productoDTO.setId(1L);
+        productoDTO.setNombre("Hamburguesa");
+
+        SucursalProductoDTO response =  new SucursalProductoDTO();
+
 
         response.setId(id);
-        response.setSucursal(sucursal);
-        response.setProducto(producto);
+        response.setSucursal(sucursalDTO);
+        response.setProducto(productoDTO);
         response.setStock(200);
 
         when(repository.findById(id))

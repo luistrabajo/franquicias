@@ -3,6 +3,8 @@ package com.franquicia.prueba.service;
 import com.franquicia.prueba.dto.ProductoMayorStockDTO;
 import com.franquicia.prueba.dto.SucursalProductoDTO;
 import com.franquicia.prueba.entity.SucursalProducto;
+import com.franquicia.prueba.mappers.ProductoMapper;
+import com.franquicia.prueba.mappers.SucursalMapper;
 import com.franquicia.prueba.mappers.SucursalProductoMapper;
 import com.franquicia.prueba.repository.SucursalProductoRepository;
 import jakarta.transaction.Transactional;
@@ -63,6 +65,8 @@ public class SucursalProductoService {
             Long id,
             SucursalProductoDTO dto) {
 
+
+
         SucursalProducto entity =
                 repository.findById(id)
                         .orElseThrow(() ->
@@ -70,11 +74,13 @@ public class SucursalProductoService {
                                         "Registro no encontrado"));
 
         if (dto.getSucursal() != null) {
-            entity.setSucursal(dto.getSucursal());
+            SucursalMapper sucursalMapper = new SucursalMapper();
+            entity.setSucursal(sucursalMapper.toEntity(dto.getSucursal()));
         }
 
         if (dto.getProducto() != null) {
-            entity.setProducto(dto.getProducto());
+            ProductoMapper productoMapper = new ProductoMapper();
+            entity.setProducto(productoMapper.toEntity(dto.getProducto()));
         }
 
         if (dto.getStock() != null) {

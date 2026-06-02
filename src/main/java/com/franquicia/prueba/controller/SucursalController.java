@@ -13,6 +13,8 @@ public class SucursalController {
 
     private final SucursalService service;
 
+
+
     @GetMapping
     public List<SucursalDTO> listar() {
         return service.listar();
