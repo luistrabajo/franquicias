@@ -13,39 +13,30 @@ public class SucursalController {
 
     private final SucursalService service;
 
-
-
     @GetMapping
     public List<SucursalDTO> listar() {
         return service.listar();
     }
 
     @GetMapping("/{id}")
-    public SucursalDTO obtener(
-            @PathVariable Long id) {
-
+    public SucursalDTO obtener(@PathVariable Long id) {
         return service.obtener(id);
     }
 
     @PostMapping
-    public SucursalDTO crear(
-            @RequestBody SucursalDTO dto) {
-
+    public SucursalDTO crear(@RequestBody SucursalDTO dto) {
         return service.guardar(dto);
     }
 
     @PatchMapping("/{id}")
     public SucursalDTO actualizarParcial(
-            @PathVariable Long id,
-            @RequestBody SucursalDTO dto) {
-
+                @PathVariable Long id,
+                @RequestBody SucursalDTO dto) {
         return service.actualizarParcial(id, dto);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(
-            @PathVariable Long id) {
-
+    public void eliminar(@PathVariable Long id) {
         service.eliminar(id);
     }
 }

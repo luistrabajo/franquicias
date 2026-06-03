@@ -9,14 +9,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductoDTO {
-
     private Long id;
-
     private String sku;
-
     private String nombre;
-
     private String descripcion;
-
     private LocalDateTime createdAt;
 }

@@ -18,99 +18,63 @@ import java.util.List;
 public class SucursalProductoService {
 
     private final SucursalProductoRepository repository;
-
     private final SucursalProductoMapper mapper;
 
-    // LISTAR
-    public List<SucursalProductoDTO> listar() {
 
+    public List<SucursalProductoDTO> listar() {
         return repository.findAll()
                 .stream()
                 .map(mapper::toDTO)
                 .toList();
     }
 
-    // OBTENER
     public SucursalProductoDTO obtener(Long id) {
-
         SucursalProducto entity =
-                repository.findById(id)
-                        .orElseThrow(() ->
-                                new RuntimeException(
-                                        "Registro no encontrado"));
-
+        repository.findById(id)
+        .orElseThrow(() ->  new RuntimeException("Registro no encontrado"));
         return mapper.toDTO(entity);
     }
 
-    // CREAR
-    public SucursalProductoDTO guardar(
-            SucursalProductoDTO dto) {
-
-        SucursalProducto entity =
-                mapper.toEntity(dto);
-
+    public SucursalProductoDTO guardar(SucursalProductoDTO dto) {
+        SucursalProducto entity = mapper.toEntity(dto);
         entity = repository.save(entity);
-
         return mapper.toDTO(entity);
     }
 
-    // ELIMINAR
     public void eliminar(Long id) {
-
         repository.deleteById(id);
     }
 
-    // PATCH PARCIAL
-    public SucursalProductoDTO actualizarParcial(
-            Long id,
-            SucursalProductoDTO dto) {
-
-
-
+    public SucursalProductoDTO actualizarParcial(Long id,SucursalProductoDTO dto) {
         SucursalProducto entity =
-                repository.findById(id)
-                        .orElseThrow(() ->
-                                new RuntimeException(
-                                        "Registro no encontrado"));
-
+        repository.findById(id).orElseThrow(() ->
+        new RuntimeException("Registro no encontrado"));
         if (dto.getSucursal() != null) {
             SucursalMapper sucursalMapper = new SucursalMapper();
             entity.setSucursal(sucursalMapper.toEntity(dto.getSucursal()));
         }
-
         if (dto.getProducto() != null) {
             ProductoMapper productoMapper = new ProductoMapper();
             entity.setProducto(productoMapper.toEntity(dto.getProducto()));
         }
-
         if (dto.getStock() != null) {
             entity.setStock(dto.getStock());
         }
-
         entity = repository.save(entity);
-
         return mapper.toDTO(entity);
     }
 
     public SucursalProductoDTO actualizarStock(Long id, Integer nuevo_stock) {
-
         SucursalProducto entity =
-                repository.findById(id).orElseThrow(() -> new RuntimeException("Registro no encontrado"));
-
+        repository.findById(id).orElseThrow(() ->
+        new RuntimeException("Registro no encontrado"));
         entity.setStock(nuevo_stock);
-
         entity = repository.save(entity);
-
         return mapper.toDTO(entity);
     }
 
-
     public List<ProductoMayorStockDTO>
-    obtenerProductosMayorStockPorFranquicia(
-            Long franquiciaId) {
-
-        return repository
-                .obtenerProductosMayorStockPorFranquicia(
-                        franquiciaId);
+    obtenerProductosMayorStockPorFranquicia(Long franquiciaId) {
+        return repository.obtenerProductosMayorStockPorFranquicia(franquiciaId);
     }
 }

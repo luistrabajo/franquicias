@@ -7,8 +7,6 @@ import com.franquicia.prueba.dto.SucursalProductoDTO;
 import com.franquicia.prueba.entity.Producto;
 import com.franquicia.prueba.entity.Sucursal;
 import com.franquicia.prueba.entity.SucursalProducto;
-import com.franquicia.prueba.mappers.ProductoMapper;
-import com.franquicia.prueba.mappers.SucursalMapper;
 import com.franquicia.prueba.mappers.SucursalProductoMapper;
 import com.franquicia.prueba.repository.SucursalProductoRepository;
 import org.junit.jupiter.api.Test;

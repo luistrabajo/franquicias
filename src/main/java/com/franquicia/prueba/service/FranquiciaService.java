@@ -18,28 +18,20 @@ public class FranquiciaService {
     private final FranquiciaMapper mapper;
 
     public List<FranquiciaDTO> listar() {
-
         return repository.findAll()
                 .stream()
                 .map(mapper::toDTO)
                 .toList();
     }
 
-    public FranquiciaDTO guardar(
-            FranquiciaDTO dto) {
-
+    public FranquiciaDTO guardar(FranquiciaDTO dto) {
         Franquicia entity = mapper.toEntity(dto);
-
         entity = repository.save(entity);
-
         return mapper.toDTO(entity);
     }
 
     public FranquiciaDTO obtener(Long id) {
-
-        Franquicia entity = repository.findById(id)
-                .orElseThrow();
-
+        Franquicia entity = repository.findById(id).orElseThrow();
         return mapper.toDTO(entity);
     }
 
@@ -48,33 +40,22 @@ public class FranquiciaService {
     }
 
     @Transactional
-    public FranquiciaDTO actualizarParcial(
-            Long id,
-            FranquiciaDTO dto) {
-
+    public FranquiciaDTO actualizarParcial(Long id,FranquiciaDTO dto) {
         Franquicia franquicia = repository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Franquicia no encontrada"));
-
+                                .orElseThrow(() ->new RuntimeException("Franquicia no encontrada"));
         if (dto.getNombre() != null) {
             franquicia.setNombre(dto.getNombre());
         }
-
         if (dto.getNit() != null) {
             franquicia.setNit(dto.getNit());
         }
-
         if (dto.getTelefono() != null) {
             franquicia.setTelefono(dto.getTelefono());
         }
-
         if (dto.getEmail() != null) {
             franquicia.setEmail(dto.getEmail());
         }
-
         Franquicia actualizada = repository.save(franquicia);
-
         return mapper.toDTO(actualizada);
     }
-
 }

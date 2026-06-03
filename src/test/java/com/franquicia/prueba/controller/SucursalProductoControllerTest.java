@@ -4,8 +4,6 @@ package com.franquicia.prueba.controller;
 import com.franquicia.prueba.dto.ProductoDTO;
 import com.franquicia.prueba.dto.SucursalDTO;
 import com.franquicia.prueba.dto.SucursalProductoDTO;
-import com.franquicia.prueba.entity.Producto;
-import com.franquicia.prueba.entity.Sucursal;
 import com.franquicia.prueba.service.SucursalProductoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

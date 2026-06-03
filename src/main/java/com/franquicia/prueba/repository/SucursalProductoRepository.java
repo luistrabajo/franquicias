@@ -6,12 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
-public interface SucursalProductoRepository
-        extends JpaRepository<SucursalProducto, Long> {
+public interface SucursalProductoRepository extends JpaRepository<SucursalProducto, Long> {
 
     @Query("""
                 SELECT new com.franquicia.prueba.dto.ProductoMayorStockDTO(
@@ -23,8 +21,6 @@ public interface SucursalProductoRepository
                     FROM SucursalProducto sp2
                     WHERE sp2.sucursal.id = sp.sucursal.id
                 )""")
-    List<ProductoMayorStockDTO>
-    obtenerProductosMayorStockPorFranquicia(
-            @Param("franquiciaId")
-            Long franquiciaId);
-}
+    List<ProductoMayorStockDTO> obtenerProductosMayorStockPorFranquicia(
+                                @Param("franquiciaId") Long franquiciaId);
+    }

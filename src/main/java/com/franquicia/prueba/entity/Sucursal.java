@@ -16,13 +16,9 @@ public class Sucursal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
-
     private String direccion;
-
     private String ciudad;
-
     private String telefono;
 
     @ManyToOne

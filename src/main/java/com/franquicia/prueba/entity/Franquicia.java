@@ -15,14 +15,8 @@ public class Franquicia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
-
     private String nit;
-
     private String telefono;
-
     private String email;
-
-
 }

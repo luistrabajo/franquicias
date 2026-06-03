@@ -15,13 +15,11 @@ public class SucursalProducto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Integer stock;
 
     @ManyToOne
     @JoinColumn(name = "sucursal_id")
     private Sucursal sucursal;
-
 
     @ManyToOne
     @JoinColumn(name = "producto_id")

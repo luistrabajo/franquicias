@@ -9,11 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductoMayorStockDTO {
-
     private String sucursal;
-
     private String producto;
-
     private Integer stock;
 }
 

@@ -39,7 +39,6 @@ public class FranquiciaController {
     public FranquiciaDTO actualizar(
             @PathVariable Long id,
             @RequestBody FranquiciaDTO franquicia) {
-
         franquicia.setId(id);
         return service.guardar(franquicia);
     }
@@ -53,17 +52,13 @@ public class FranquiciaController {
     public FranquiciaDTO actualizarParcial(
             @PathVariable Long id,
             @RequestBody Map<String, Object> campos) {
-
         FranquiciaDTO franquiciaDto = service.obtener(id);
-
         if (campos.containsKey("nombre")) {
             franquiciaDto.setNombre((String) campos.get("nombre"));
         }
-
         if (campos.containsKey("telefono")) {
             franquiciaDto.setTelefono((String) campos.get("telefono"));
         }
-
         return service.actualizarParcial(id, franquiciaDto);
     }
 }

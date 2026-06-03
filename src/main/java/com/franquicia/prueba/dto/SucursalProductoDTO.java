@@ -9,12 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SucursalProductoDTO {
-
     private Long id;
-
     private SucursalDTO sucursal;
-
     private ProductoDTO producto;
-
     private Integer stock;
 }

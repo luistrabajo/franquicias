@@ -9,16 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SucursalDTO {
-
     private Long id;
-
     private String nombre;
-
     private String direccion;
-
     private String ciudad;
-
     private String telefono;
-
     private FranquiciaDTO franquiciaDTO;
 }

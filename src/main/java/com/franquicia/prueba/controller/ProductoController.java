@@ -15,21 +15,16 @@ public class ProductoController {
 
     @GetMapping
     public List<ProductoDTO> listar() {
-
         return service.listar();
     }
 
     @GetMapping("/{id}")
-    public ProductoDTO obtener(
-            @PathVariable Long id) {
-
+    public ProductoDTO obtener(@PathVariable Long id) {
         return service.obtener(id);
     }
 
     @PostMapping
-    public ProductoDTO crear(
-            @RequestBody ProductoDTO dto) {
-
+    public ProductoDTO crear(@RequestBody ProductoDTO dto) {
         return service.guardar(dto);
     }
 
@@ -37,14 +32,11 @@ public class ProductoController {
     public ProductoDTO actualizarParcial(
             @PathVariable Long id,
             @RequestBody ProductoDTO dto) {
-
         return service.actualizarParcial(id, dto);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(
-            @PathVariable Long id) {
-
+    public void eliminar(@PathVariable Long id) {
         service.eliminar(id);
     }
 }

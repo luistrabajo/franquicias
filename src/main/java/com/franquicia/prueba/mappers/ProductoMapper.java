@@ -8,20 +8,16 @@ import org.springframework.stereotype.Component;
 public class ProductoMapper {
 
     public ProductoDTO toDTO(Producto entity) {
-
         return new ProductoDTO(
                 entity.getId(),
                 entity.getNombre(),
                 entity.getSku(),
                 entity.getDescripcion(),
-                entity.getCreatedAt()
-        );
+                entity.getCreatedAt());
     }
 
     public Producto toEntity(ProductoDTO dto) {
-
         Producto entity = new Producto();
-
         entity.setId(dto.getId());
         entity.setNombre(dto.getNombre());
         entity.setSku(dto.getSku());
